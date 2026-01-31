@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================
+Daily Soul Journal - String Resources
+============================================================
+All user-facing text is centralized here for future i18n.
+============================================================
+-->
+<resources>
+    <string name="app_name">Daily Soul Journal</string>
+
+    <!-- Home -->
+    <string name="home_today">TODAY</string>
+    <string name="home_placeholder">Start typing your soul\'s journey...</string>
+    <string name="home_drafting">Drafting...</string>
+    <string name="home_saved">Saved</string>
+    <string name="home_save_button">Save Soul</string>
+
+    <!-- Mood -->
+    <string name="mood_title">DAILY SOUL</string>
+    <string name="mood_subtitle">Take a deep breath. Observe without judgment.</string>
+    <string name="mood_continue">Continue to Journal</string>
+    <string name="mood_skip">Skip for now</string>
+    <string name="mood_joy">JOY</string>
+    <string name="mood_calm">CALM</string>
+    <string name="mood_neutral">NEUTRAL</string>
+    <string name="mood_low">LOW</string>
+    <string name="mood_heavy">HEAVY</string>
+
+    <!-- History -->
+    <string name="history_title">Daily Soul Journal</string>
+    <string name="history_empty">No entries yet.\nStart writing today.</string>
+    <string name="history_filter_all">All Time</string>
+
+    <!-- Read -->
+    <string name="read_delete_title">Delete Entry</string>
+    <string name="read_delete_message">This reflection will be permanently removed. Are you sure?</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_appearance">APPEARANCE</string>
+    <string name="settings_dark_mode">Dark Mode</string>
+    <string name="settings_notifications">NOTIFICATIONS</string>
+    <string name="settings_daily_reminder">Daily Reminder</string>
+    <string name="settings_reminder_desc">Receive a gentle nudge to reflect.</string>
+    <string name="settings_data_privacy">DATA &amp; PRIVACY</string>
+    <string name="settings_export">Export Journal</string>
+    <string name="settings_export_desc">Save your reflections as a Text file.</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_made_with">Made with Soul</string>
+    <string name="settings_version">VERSION 1.0.4</string>
+
+    <!-- Navigation -->
+    <string name="nav_journal">JOURNAL</string>
+    <string name="nav_history">HISTORY</string>
+    <string name="nav_settings">SETTINGS</string>
+
+    <!-- Accessibility -->
+    <string name="cd_back">Back</string>
+    <string name="cd_close">Close</string>
+    <string name="cd_new_entry">New Entry</string>
+</resources>

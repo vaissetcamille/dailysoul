@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================
+Daily Soul Journal - Color Resources (Light Theme)
+============================================================
+Warm, earthy palette matching the Stitch mockups exactly:
+  cream/off-white backgrounds, terracotta accents, warm greys.
+============================================================
+-->
+<resources name="color_values">
+    <!-- Backgrounds -->
+    <color name="bg_warm">  #F9F7F2</color>     <!-- main page background -->
+    <color name="bg_card">  #F2EBE1</color>     <!-- settings card backgrounds -->
+    <color name="bg_paper">#FAF9F6</color>     <!-- mood button default bg -->
+
+    <!-- Accent -->
+    <color name="terracotta">#C36A4D</color>   <!-- primary CTA, active toggles, selected moods -->
+
+    <!-- Typography -->
+    <color name="text_dark"> #3D3A35</color>   <!-- primary text -->
+    <color name="text_warm"> #4A4542</color>   <!-- headings / nav active -->
+    <color name="text_muted">#8E8A84</color>   <!-- secondary text, descriptions -->
+    <color name="text_hint"> #8E8A84</color>   <!-- placeholder text -->
+
+    <!-- UI Elements -->
+    <color name="toggle_off">#D1CDC7</color>   <!-- inactive toggle track -->
+    <color name="divider">   #E8E4DE</color>   <!-- subtle dividers -->
+    <color name="chip_bg">   #E8E4DE</color>   <!-- inactive filter chip bg -->
+    <color name="nav_bg">    #F9F7F2</color>   <!-- bottom nav background -->
+
+    <!-- Transparent variants (for shadows, overlays) -->
+    <color name="terracotta_20">#33C36A4D</color>
+    <color name="black_05">   #0D000000</color>
+    <color name="black_10">   #1A000000</color>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================
+Daily Soul Journal - Theme Definitions
+============================================================
+Three themes:
+  Theme.DailySoul      – the main light app theme
+  Theme.DailySoul.Dark – dark-mode variant (applied programmatically)
+  Theme.DailySoul.Splash – splash screen theme (shown before MainActivity loads)
+============================================================
+-->
+<resources>
+
+    <!-- ── Light Theme ─────────────────────────────────────── -->
+    <style name="Theme.DailySoul" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Material color mapping -->
+        <item name="colorPrimary">@color/terracotta</item>
+        <item name="colorPrimaryVariant">@color/terracotta</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">@color/terracotta</item>
+        <item name="colorBackground">@color/bg_warm</item>
+        <item name="colorOnBackground">@color/text_dark</item>
+
+        <!-- Window -->
+        <item name="android:windowBackground">@color/bg_warm</item>
+        <item name="android:statusBarColor">@color/bg_warm</item>
+        <item name="android:navigationBarColor">@color/nav_bg</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Text styles -->
+        <item name="android:textColorPrimary">@color/text_dark</item>
+        <item name="android:textColorSecondary">@color/text_muted</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+    </style>
+
+    <!-- ── Dark Theme ──────────────────────────────────────── -->
+    <style name="Theme.DailySoul.Dark" parent="Theme.DailySoul">
+        <item name="android:windowBackground">@color/bg_warm</item>
+        <item name="android:statusBarColor">@color/bg_warm</item>
+        <item name="android:navigationBarColor">@color/nav_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <!-- ── Splash Theme (shown instantly on cold launch) ──── -->
+    <style name="Theme.DailySoul.Splash" parent="Theme.DailySoul">
+        <item name="android:windowBackground">@color/bg_warm</item>
+    </style>
+
+</resources>

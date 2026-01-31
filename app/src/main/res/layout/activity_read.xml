@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================
+activity_read.xml – Journal Entry Reader
+============================================================
+Full-screen immersive reader: back arrow, date header,
+centered serif body text, floating edit/delete/share toolbar.
+============================================================
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_warm">
+
+    <!-- Back Arrow -->
+    <TextView
+        android:id="@+id/btn_back"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="44dp"
+        android:text="‹"
+        android:textColor="@color/text_muted"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:contentDescription="@string/cd_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Scrollable content area -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="80dp"
+        android:paddingBottom="120dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Decorative line -->
+            <View
+                android:layout_width="32dp"
+                android:layout_height="1dp"
+                android:background="@color/terracotta"
+                android:backgroundTint="@color/terracotta"
+                android:alpha="0.4" />
+
+            <!-- Date header -->
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_muted"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.2"
+                android:fontFamily="sans-serif"
+                android:gravity="center" />
+
+            <!-- Read-only content (visible by default) -->
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:textColor="@color/text_dark"
+                android:textSize="20sp"
+                android:fontFamily="serif"
+                android:lineSpacingMultiplier="1.8"
+                android:letterSpacing="0.01"
+                android:gravity="center" />
+
+            <!-- Editable content (hidden by default) -->
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/text_dark"
+                android:textSize="20sp"
+                android:fontFamily="serif"
+                android:lineSpacingMultiplier="1.8"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:visibility="gone" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ── Floating Bottom Toolbar ──────────────────── -->
+    <LinearLayout
+        android:id="@+id/toolbar_float"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/toolbar_float_bg"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Edit -->
+        <LinearLayout
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/btn_edit">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="✎" android:textColor="@color/text_warm" android:textSize="20sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+            <!-- Delete -->
+        <LinearLayout
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/btn_delete">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🗑" android:textSize="18sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+            <!-- Share -->
+        <LinearLayout
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/btn_share">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="↗" android:textColor="@color/text_warm" android:textSize="20sp"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

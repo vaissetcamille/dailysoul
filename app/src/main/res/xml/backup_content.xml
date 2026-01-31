@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================
+backup_content.xml – pre-Android 12 full backup content spec
+============================================================
+-->
+<full-backup-content>
+    <include domain="database" path="daily_soul_journal.db" />
+    <include domain="sharedprefs" path="daily_soul_prefs.xml" />
+</full-backup-content>

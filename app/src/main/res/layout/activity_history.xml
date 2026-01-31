@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================
+activity_history.xml – Journal History Screen
+============================================================
+Header with title + search icon, horizontal filter chips,
+scrollable RecyclerView of entries, FAB for new entry,
+bottom navigation.
+============================================================
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_warm">
+
+    <!-- ── Header ──────────────────────────────────────── -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="4dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/bg_warm"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Calendar icon (decorative) -->
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="📅"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:background="@drawable/circle_terracotta_light" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/history_title"
+            android:textColor="@color/text_warm"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:gravity="center" />
+
+        <!-- Search icon (placeholder) -->
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="🔍"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/text_muted" />
+    </LinearLayout>
+
+    <!-- ── Filter Chips (horizontal scroll) ──────────── -->
+    <HorizontalScrollView
+        android:id="@+id/scroll_chips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/chip_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical" />
+    </HorizontalScrollView>
+
+    <!-- ── Entry List ────────────────────────────────── -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_history"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="0dp"
+        android:paddingBottom="100dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/scroll_chips"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ── Empty State ──────────────────────────────── -->
+    <TextView
+        android:id="@+id/tv_empty_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/history_empty"
+        android:textColor="@color/text_muted"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/recycler_history"
+        app:layout_constraintBottom_toBottomOf="@id/recycler_history"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ── FAB (New Entry) ──────────────────────────── -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fab_new_entry"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/fab_terracotta"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:stateListAnimator="@null"
+        android:contentDescription="@string/cd_new_entry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ── Bottom Navigation ──────────────────────── -->
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/nav_bg"
+        android:paddingTop="8dp"
+        android:paddingBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Journal -->
+        <LinearLayout
+            android:id="@+id/nav_journal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="4dp">
+            <TextView android:layout_width="24dp" android:layout_height="24dp"
+                android:textColor="@color/text_muted" android:textSize="20sp"
+                android:gravity="center" android:text="✏" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:text="@string/nav_journal"
+                android:textColor="@color/text_muted" android:textSize="9sp"
+                android:textStyle="bold" android:letterSpacing="0.12" android:fontFamily="sans-serif" />
+        </LinearLayout>
+
+        <!-- History (active) -->
+        <LinearLayout
+            android:id="@+id/nav_history_active"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="4dp">
+            <TextView android:layout_width="24dp" android:layout_height="24dp"
+                android:textColor="@color/terracotta" android:textSize="20sp"
+                android:gravity="center" android:text="📖" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:text="@string/nav_history"
+                android:textColor="@color/terracotta" android:textSize="9sp"
+                android:textStyle="bold" android:letterSpacing="0.12" android:fontFamily="sans-serif" />
+        </LinearLayout>
+
+        <!-- Settings -->
+        <LinearLayout
+            android:id="@+id/nav_settings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="4dp">
+            <TextView android:layout_width="24dp" android:layout_height="24dp"
+                android:textColor="@color/text_muted" android:textSize="20sp"
+                android:gravity="center" android:text="⚙" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:text="@string/nav_settings"
+                android:textColor="@color/text_muted" android:textSize="9sp"
+                android:textStyle="bold" android:letterSpacing="0.12" android:fontFamily="sans-serif" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

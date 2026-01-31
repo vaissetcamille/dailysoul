@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================
+activity_mood.xml – Mood Selection Screen
+============================================================
+Optional pre-journaling mood check-in.
+Layout: close button → progress dots → question → 5 mood buttons
+(3 top row + 2 bottom row) → Continue / Skip.
+============================================================
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_warm">
+
+    <!-- Close (X) button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_close"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:background="@android:color/transparent"
+        android:text="✕"
+        android:textColor="@color/text_muted"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:contentDescription="@string/cd_close"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Title "DAILY SOUL" -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/mood_title"
+        android:textColor="@color/text_muted"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.18"
+        android:gravity="center"
+        android:fontFamily="sans-serif"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Progress dots (decorative) -->
+    <LinearLayout
+        android:id="@+id/progress_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View android:layout_width="6dp" android:layout_height="6dp"
+            android:background="@drawable/dot_inactive" android:layout_marginEnd="6dp" />
+        <View android:layout_width="32dp" android:layout_height="4dp"
+            android:background="@color/terracotta" android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/terracotta" />
+        <View android:layout_width="6dp" android:layout_height="6dp"
+            android:background="@drawable/dot_inactive" />
+    </LinearLayout>
+
+    <!-- Question: "How does your soul feel?" -->
+    <LinearLayout
+        android:id="@+id/question_block"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/progress_dots"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How does your"
+            android:textColor="@color/text_warm"
+            android:textSize="30sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="soul"
+                android:textColor="@color/terracotta"
+                android:textSize="30sp"
+                android:textStyle="italic"
+                android:fontFamily="sans-serif"
+                android:layout_marginEnd="6dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="feel?"
+                android:textColor="@color/text_warm"
+                android:textSize="30sp"
+                android:textStyle="normal"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/mood_subtitle"
+            android:textColor="@color/text_muted"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- ── Top Row: Joy | Calm | Neutral ──────────────── -->
+    <LinearLayout
+        android:id="@+id/mood_row_top"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/question_block"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Joy -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_mood_joy"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/mood_button_default"
+                android:text="☀"
+                android:textColor="@color/text_muted"
+                android:textSize="26sp"
+                android:stateListAnimator="@null"
+                android:contentDescription="Joy" />
+            <TextView
+                android:id="@+id/tv_mood_joy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/mood_joy"
+                android:textColor="@color/text_muted"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+
+            <!-- Calm -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_mood_calm"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/mood_button_default"
+                android:text="〰"
+                android:textColor="@color/text_muted"
+                android:textSize="26sp"
+                android:stateListAnimator="@null"
+                android:contentDescription="Calm" />
+            <TextView
+                android:id="@+id/tv_mood_calm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/mood_calm"
+                android:textColor="@color/text_muted"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+
+            <!-- Neutral -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_mood_neutral"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/mood_button_default"
+                android:text="○"
+                android:textColor="@color/text_muted"
+                android:textSize="26sp"
+                android:stateListAnimator="@null"
+                android:contentDescription="Neutral" />
+            <TextView
+                android:id="@+id/tv_mood_neutral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/mood_neutral"
+                android:textColor="@color/text_muted"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ── Bottom Row: Low | Heavy ────────────────────── -->
+    <LinearLayout
+        android:id="@+id/mood_row_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/mood_row_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Low -->
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_mood_low"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/mood_button_default"
+                android:text="💧"
+                android:textColor="@color/text_muted"
+                android:textSize="26sp"
+                android:stateListAnimator="@null"
+                android:contentDescription="Low" />
+            <TextView
+                android:id="@+id/tv_mood_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/mood_low"
+                android:textColor="@color/text_muted"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+
+            <!-- Heavy -->
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_mood_heavy"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/mood_button_default"
+                android:text="☁"
+                android:textColor="@color/text_muted"
+                android:textSize="26sp"
+                android:stateListAnimator="@null"
+                android:contentDescription="Heavy" />
+            <TextView
+                android:id="@+id/tv_mood_heavy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/mood_heavy"
+                android:textColor="@color/text_muted"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ── Continue Button ─────────────────────────────── -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_continue"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/mood_continue"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:background="@drawable/btn_primary_disabled"
+        android:enabled="false"
+        android:stateListAnimator="@null"
+        app:layout_constraintTop_toBottomOf="@id/mood_row_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ── Skip Link ────────────────────────────────────── -->
+    <TextView
+        android:id="@+id/btn_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/mood_skip"
+        android:textColor="@color/text_muted"
+        android:textSize="13sp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/btn_continue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

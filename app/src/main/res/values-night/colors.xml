@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================
+Daily Soul Journal - Color Resources (Dark Theme)
+============================================================
+Dark-mode overrides. Only values that change are listed here;
+unchanged colors (like terracotta) inherit from values/colors.xml.
+============================================================
+-->
+<resources name="color_values">
+    <!-- Backgrounds – deep warm darks -->
+    <color name="bg_warm">  #24211F</color>
+    <color name="bg_card">  #2E2B28</color>
+    <color name="bg_paper">#2E2B28</color>
+
+    <!-- Typography – light for readability -->
+    <color name="text_dark"> #F0EDE8</color>
+    <color name="text_warm"> #F0EDE8</color>
+    <color name="text_muted">#9E9A93</color>
+    <color name="text_hint"> #6B6760</color>
+
+    <!-- UI Elements -->
+    <color name="toggle_off">#4A4745</color>
+    <color name="divider">   #3A3735</color>
+    <color name="chip_bg">   #3A3735</color>
+    <color name="nav_bg">    #24211F</color>
+</resources>
