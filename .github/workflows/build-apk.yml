@@ -2,7 +2,7 @@ name: Build APK
 
 on:
   push:
-    branches: [ main ] # Change “main” si ta branche principale a un autre nom
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -19,11 +19,13 @@ jobs:
         distribution: temurin
         java-version: 17
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x ./gradlew
+    - name: Install Gradle
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gradle
 
     - name: Build APK
-      run: ./gradlew assembleDebug
+      run: gradle assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
